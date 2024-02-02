@@ -10,6 +10,11 @@ class Contacts:
         with open('contacts.csv', 'r') as contact_list:
             csv_reader = csv.reader(contact_list)
             self._contacts = list(csv_reader)
+    def _initialize_csv(self):
+        if not os.path.isfile(self._csv_filename):
+            with open(self._csv_filename,'w', newline = '') as contact_list:
+                csv_writer = csv.writer(contact_list)
+                csv_writer.writerow(['Name', 'Phone'])
 
     def add_contact(self):
         print("Enter contact details:")
