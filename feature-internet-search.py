@@ -20,14 +20,15 @@ class searchTerminal:
 
     def search_history(self):
         print(self.history)
-        history_request = int(input('Which URL do you want to access: '))    
-        URL = list(self.history[history_request].values())[0]
-        webbrowser.open_new_tab(URL) 
-        
+        history_request = int(input("Which URL do you want to access (0 to exit): "))
+        if history_request >= 1:
+            URL = list(self.history[history_request].values())[0]
+            webbrowser.open_new_tab(URL) 
+            
 
-# search_data = searchTerminal()
-# search_data.search_engine()
-# search_data.search_history()
+search_data = searchTerminal()
+search_data.search_engine()
+search_data.search_history()
 
 
 
