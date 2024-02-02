@@ -7,11 +7,17 @@ class Contacts:
             self._contacts = list(csv_reader)
 
     def add_contact(self, contact_dictionary):
-        with open('contacts.csv', 'w') as contact_list:
-            contact_list.write(contactDictionary)
-            contact_list.write('\n')
+        self._contacts.append(contact_dictionary)
+        self._write_to_csv()
 
-    def delete_contact(self, contact_Name):
+    def delete_contact(self, contact_name):
+        for contact in self.contacts:
+            if contact('Name') == contact_name:
+                self._contacts.remove(contact)
+                self._write_to_csv()
+                break
+    def _write_to_csv(self):
+        with open('contacts.csv', )
 
     def
             
