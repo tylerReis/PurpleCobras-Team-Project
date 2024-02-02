@@ -8,14 +8,14 @@ class Contacts:
         self._initialize_csv()
 
         with open('contacts.csv', 'r') as contact_list:
-            csv_reader = csv.reader(contact_list)
+            csv_reader = csv.DictReader(contact_list)
             self._contacts = list(csv_reader)
     def _initialize_csv(self):
         if not os.path.isfile(self._csv_filename):
             with open(self._csv_filename,'w', newline = '') as contact_list:
                 csv_writer = csv.writer(contact_list)
                 csv_writer.writerow(['Name', 'Phone'])
-
+#Method to add contacts
     def add_contact(self):
         print("Enter contact details:")
         name = input("Name:")
@@ -24,7 +24,7 @@ class Contacts:
         self._contacts.append(contact_dict)
         self._write_to_csv()
         print('Contact added successfully.')
-
+#Method to Delete Contacts
     def delete_contact(self):
         print("Enter contact to be deleted:")
         contact_name = input('Name: ')
@@ -43,10 +43,12 @@ class Contacts:
             print("\nNo contacts available.")
 
     def _write_to_csv(self):
-        with open('contacts.csv', 'w', newline= '') as contact_list:
-            csv_writer = csv.DictWriter(contact_list, fieldnames= ['Name', 'Phone'])
+        with open('contacts.csv', 'w', newline='') as contact_list:
+            csv_writer = csv.DictWriter(contact_list, fieldnames=['Name', 'Phone'])
             csv_writer.writeheader()
-            csv_writer.writerows(self._contacts)
+
+            for contact in self._contacts:
+                csv_writer.writerow(contact)
 
 
         
@@ -54,6 +56,11 @@ class Contacts:
     #This is Tyler's comment
 
 contact_manager = Contacts()
+
+contact_manager.add_contact()
+contact_manager.add_contact()
+contact_manager.add_contact()
+
 
     
 contact_manager.display_contacts()
