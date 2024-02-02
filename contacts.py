@@ -44,7 +44,7 @@ class Contacts:
 
     def _write_to_csv(self):
         with open('contacts.csv', 'w', newline= '') as contact_list:
-            csv_writer = csv.writer(contact_list, fieldname = ["Name", "Phone"])
+            csv_writer = csv.DictWriter(contact_list, fieldnames= ['Name', 'Phone'])
             csv_writer.writeheader()
             csv_writer.writerows(self._contacts)
 
@@ -55,11 +55,8 @@ class Contacts:
 
 contact_manager = Contacts()
 
-contact_manager.add_contact()         
-contact_manager.add_contact()
-contact_manager.add_contact()
-contact_manager.add_contact()
-contact_manager.add_contact()
+    
+contact_manager.display_contacts()
 
             
     
