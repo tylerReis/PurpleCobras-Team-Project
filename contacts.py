@@ -1,7 +1,12 @@
 import csv
+import os 
 
 class Contacts:
     def __init__(self):
+#Creates a CSV File
+        self._csv_filename = 'contacts.csv'
+        self._initialize_csv()
+
         with open('contacts.csv', 'r') as contact_list:
             csv_reader = csv.reader(contact_list)
             self._contacts = list(csv_reader)
@@ -42,6 +47,10 @@ class Contacts:
 contact_manager = Contacts()
 
 contact_manager.add_contact()         
+contact_manager.add_contact()
+contact_manager.add_contact()
+contact_manager.add_contact()
+contact_manager.add_contact()
 
             
     
