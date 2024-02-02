@@ -25,9 +25,9 @@ class searchTerminal:
         webbrowser.open_new_tab(URL) 
         
 
-search_data = searchTerminal()
-search_data.search_engine()
-search_data.search_history()
+# search_data = searchTerminal()
+# search_data.search_engine()
+# search_data.search_history()
 
 
 
