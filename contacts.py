@@ -55,17 +55,4 @@ class Contacts:
 
     #This is Tyler's comment
 
-contact_manager = Contacts()
-
-contact_manager.add_contact()
-contact_manager.add_contact()
-contact_manager.add_contact()
-
-
-    
-contact_manager.display_contacts()
-
-            
-    
-
 
